@@ -43,6 +43,9 @@ dependencies {
     implementation("io.springfox:springfox-swagger-ui:3.0.0")
     implementation("io.springfox:springfox-swagger2:3.0.0")
     implementation("junit:junit:4.13.1")
+
+    implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6")
+
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

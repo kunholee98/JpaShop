@@ -1,12 +1,14 @@
 package jpabook.jpashop
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
-class Member (
-    @Id @GeneratedValue
-    var id: Int? = null,
+class Member {
+    @Id
+    @Column(name = "id", nullable = false)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null
+
     var username: String? = null
-)
+
+}
