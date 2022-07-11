@@ -19,12 +19,12 @@ class MemberRepository {
         return em.find(Member::class.java, id)
     }
 
-    fun findAll(): MutableList<Member>? {
+    fun findAll(): MutableList<Member> {
         // table 이 아닌 entity object 에 대해서 쿼리를 날림. JPQL (SQL 과 유사)
         return em.createQuery("select m from Member m", Member::class.java).resultList
     }
 
-    fun findByName(name: String): MutableList<Member>? {
+    fun findByName(name: String): MutableList<Member> {
         return em.createQuery("select m from Member m where m.username = :name", Member::class.java)
             .setParameter("name", name)
             .resultList

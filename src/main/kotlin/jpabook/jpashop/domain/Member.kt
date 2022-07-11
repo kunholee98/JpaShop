@@ -8,16 +8,16 @@ import javax.persistence.Id
 import javax.persistence.OneToMany
 
 @Entity
-class Member (
+class Member () {
     @Id @GeneratedValue
     @Column(name = "member_id")
-    var id: Long? = null,
+    var id: Long = 0
 
-    var username: String? = null,
+    var username: String = ""
 
     @Embedded
-    var address: Address? = null,
+    var address: Address = Address()
 
     @OneToMany(mappedBy = "member") // order 의 member 변경에 따라 mapped 된다.
     var orders: MutableList<Order> = mutableListOf()
-)
+}

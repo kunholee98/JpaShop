@@ -5,10 +5,10 @@ import javax.persistence.Embeddable
 @Embeddable
 class Address(
 
-    var city: String? = null,
+    var city: String = "",
 
-    var street: String? = null,
+    var street: String = "",
 
-    var zipcode: String? = null,
+    var zipcode: String = "",
 
 )
