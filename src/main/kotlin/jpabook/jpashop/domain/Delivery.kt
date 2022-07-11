@@ -9,7 +9,7 @@ class Delivery {
     @Column(name = "delivery_id")
     var id: Long? = null
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "delivery")
     var order: Order? = null
 
     @Embedded

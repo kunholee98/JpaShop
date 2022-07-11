@@ -12,14 +12,14 @@ class Order(
     @Column(name = "order_id")
     var id: Long? = null,
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     var member: Member,
 
-    @OneToMany(mappedBy = "order_id")
+    @OneToMany(mappedBy = "item", cascade = [CascadeType.ALL])  // persist 전파
     var orderItems: MutableList<OrderItem> = mutableListOf(),
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     @JoinColumn(name = "delivery_id")
     var delivery: Delivery? = null,
 
@@ -27,6 +27,5 @@ class Order(
 
     @Enumerated(EnumType.STRING)
     var orderStatus: OrderStatus? = null,       // 주문 상태: [ORDER, CANCEL]
-
 
 )

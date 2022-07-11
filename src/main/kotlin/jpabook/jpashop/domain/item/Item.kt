@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain.item
 
+import jpabook.jpashop.domain.Category
 import javax.persistence.*
 
 @Entity
@@ -16,6 +17,9 @@ class Item {
     var price: Int? = null
 
     var stockQuantity: Int? = null
+
+    @ManyToMany(mappedBy = "items")
+    var categories: MutableList<Category> = mutableListOf()
 
 
 
